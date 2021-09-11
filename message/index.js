@@ -112,7 +112,8 @@ module.exports = msgHandler = async (bocchi = new Client(), message) => {
 
         const cmd = caption || body || ''
         const command = cmd.toLowerCase().split(' ')[0] || ''
-        const prefix = /^[°•π÷×¶∆£¢€¥®™✓=|~!#$%^&./\\©^]/.test(command) ? command.match(/^[°•π÷×¶∆£¢€¥®™✓=|~!#$%^&./\\©^]/gi) : '-' // Multi-Prefix by: VideFrelan
+        const 
+	= /^[°•π÷×¶∆£¢€¥®™✓=|~!#$%^&./\\©^]/.test(command) ? command.match(/^[°•π÷×¶∆£¢€¥®™✓=|~!#$%^&./\\©^]/gi) : '-' // Multi-Prefix by: VideFrelan
         const chats = (type === 'chat') ? body : ((type === 'image' || type === 'video')) ? caption : ''
         body = (type === 'chat' && body.startsWith(prefix)) ? body : (((type === 'image' || type === 'video') && caption) && caption.startsWith(prefix)) ? caption : ''
         const args = body.trim().split(/ +/).slice(1)
@@ -1865,7 +1866,7 @@ module.exports = msgHandler = async (bocchi = new Client(), message) => {
             break
             case prefix+'status':
                 if (!isRegistered) return await bocchi.reply(from, eng.notRegistered(), id)
-                await bocchi.sendText(from, `*RAM*: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB / ${Math.round(os.totalmem / 1024 / 1024)} MB\n*CPU*: Ryzen Threadripper Pro 3995WX Core 64 @ 4.2GHz`)//${os.cpus()[0].model
+                await bocchi.sendText(from, `*RAM*: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB / ${Math.round(os.totalmem / 1024 / 1024)} MB\n*CPU*: ${os.cpus()[0].model}`)//${os.cpus()[0].model
             break
             case prefix+'listblock':
                 if (!isRegistered) return await bocchi.reply(from, eng.notRegistered(), id)
