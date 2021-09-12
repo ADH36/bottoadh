@@ -1866,7 +1866,7 @@ module.exports = msgHandler = async (bocchi = new Client(), message) => {
             break
             case prefix+'status':
                 if (!isRegistered) return await bocchi.reply(from, eng.notRegistered(), id)
-                await bocchi.sendText(from, `*RAM*: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB / ${Math.round(os.totalmem / 1024 / 1024)} MB\n*CPU*: ${os.cpus()[0].model}`)//${os.cpus()[0].model
+                await bocchi.sendText(from, `*RAM*: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB / ${Math.round(os.totalmem / 1024 / 1024)} MB\n'*CPU*: ${os.cpus()[0].model}`)//${os.cpus()[0].model
             break
             case prefix+'listblock':
                 if (!isRegistered) return await bocchi.reply(from, eng.notRegistered(), id)
